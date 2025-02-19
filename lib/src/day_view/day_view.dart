@@ -11,6 +11,12 @@ import '../constants.dart';
 import '../painters.dart';
 import '_internal_day_view_page.dart';
 
+class DayViewController {
+  Function(DateTime)? currentDayCallback;
+
+  void setCurrentDay(DateTime d) => currentDayCallback?.call(d);
+}
+
 class DayView<T extends Object?> extends StatefulWidget {
   /// A function that returns a [Widget] that determines appearance of each
   /// cell in day calendar.
@@ -226,10 +232,15 @@ class DayView<T extends Object?> extends StatefulWidget {
   /// Flag to keep scrollOffset of pages on page change
   final bool keepScrollOffset;
 
+  final Function(PageController)? pageControllerCallback;
+  final Function(DayViewController)? dayViewControllerCallBack;
+
   /// Main widget for day view.
   const DayView({
     Key? key,
     this.eventTileBuilder,
+    this.dayViewControllerCallBack,
+    this.pageControllerCallback,
     this.dateStringBuilder,
     this.timeStringBuilder,
     this.controller,
@@ -348,10 +359,16 @@ class DayViewState<T extends Object?> extends State<DayView<T>> {
   late VoidCallback _reloadCallback;
 
   final _scrollConfiguration = EventScrollConfiguration<T>();
-
+  var dayViewController = DayViewController();
   @override
   void initState() {
     super.initState();
+    widget.dayViewControllerCallBack?.call(dayViewController);
+    dayViewController.currentDayCallback = (d) {
+      _currentDate = d;
+      _regulateCurrentDate();
+      _pageController.jumpToPage(_currentIndex);
+    };
     _lastScrollOffset = widget.scrollOffset ??
         widget.startDuration.inMinutes * widget.heightPerMinute;
 
@@ -369,7 +386,9 @@ class DayViewState<T extends Object?> extends State<DayView<T>> {
     _pageController = PageController(initialPage: _currentIndex);
     _eventArranger = widget.eventArranger ?? SideEventArranger<T>();
     _assignBuilders();
+    widget.pageControllerCallback?.call(_pageController);
   }
+
 
   @override
   void didChangeDependencies() {

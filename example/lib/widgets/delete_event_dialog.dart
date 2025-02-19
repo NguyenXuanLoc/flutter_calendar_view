@@ -22,7 +22,7 @@ class _RadioDialogState extends State<DeleteEventDialog> {
             groupValue: _selectedOption,
             onChanged: (deleteType) {
               if (deleteType != null) {
-                setState(() => _selectedOption = deleteType);
+                setState(() => _selectedOption = deleteType as DeleteEvent);
               }
             },
           ),
@@ -32,7 +32,7 @@ class _RadioDialogState extends State<DeleteEventDialog> {
             groupValue: _selectedOption,
             onChanged: (deleteType) {
               if (deleteType != null) {
-                setState(() => _selectedOption = deleteType);
+                setState(() => _selectedOption = deleteType as DeleteEvent);
               }
             },
           ),
@@ -42,7 +42,7 @@ class _RadioDialogState extends State<DeleteEventDialog> {
             groupValue: _selectedOption,
             onChanged: (deleteType) {
               if (deleteType != null) {
-                setState(() => _selectedOption = deleteType);
+                setState(() => _selectedOption = deleteType as DeleteEvent);
               }
             },
           ),

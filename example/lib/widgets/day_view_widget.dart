@@ -18,12 +18,13 @@ class DayViewWidget extends StatelessWidget {
     return DayView(
       key: state,
       width: width,
+      showVerticalLine: false,
       startDuration: Duration(hours: 8),
       showHalfHours: true,
       heightPerMinute: 3,
       timeLineBuilder: _timeLineBuilder,
       scrollPhysics: const BouncingScrollPhysics(),
-      eventArranger: SideEventArranger(maxWidth: 30),
+      // eventArranger: SideEventArranger(maxWidth: 30),
       hourIndicatorSettings: HourIndicatorSettings(
         color: Theme.of(context).dividerColor,
       ),
@@ -64,6 +65,7 @@ class DayViewWidget extends StatelessWidget {
   }
 
   Widget _timeLineBuilder(DateTime date) {
+    print("date: $date:");
     if (date.minute != 0) {
       return Stack(
         clipBehavior: Clip.none,

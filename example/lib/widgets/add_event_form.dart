@@ -273,7 +273,7 @@ class _AddOrEditEventFormState extends State<AddOrEditEventForm> {
                 groupValue: _selectedFrequency,
                 onChanged: (value) {
                   setState(
-                    () => _selectedFrequency = value,
+                    () => _selectedFrequency = value as RepeatFrequency,
                   );
                 },
               ),
@@ -293,7 +293,7 @@ class _AddOrEditEventFormState extends State<AddOrEditEventForm> {
                 groupValue: _selectedFrequency,
                 onChanged: (value) {
                   setState(
-                    () => _selectedFrequency = value,
+                    () => _selectedFrequency =  value as RepeatFrequency ,
                   );
                 },
               ),
@@ -313,7 +313,7 @@ class _AddOrEditEventFormState extends State<AddOrEditEventForm> {
                 groupValue: _selectedFrequency,
                 onChanged: (value) {
                   setState(
-                    () => _selectedFrequency = value,
+                    () => _selectedFrequency =  value as RepeatFrequency,
                   );
                 },
               ),
@@ -333,7 +333,7 @@ class _AddOrEditEventFormState extends State<AddOrEditEventForm> {
                 groupValue: _selectedFrequency,
                 onChanged: (value) {
                   setState(
-                    () => _selectedFrequency = value,
+                    () => _selectedFrequency =  value as RepeatFrequency,
                   );
                 },
               ),
@@ -353,7 +353,7 @@ class _AddOrEditEventFormState extends State<AddOrEditEventForm> {
                 groupValue: _selectedFrequency,
                 onChanged: (value) {
                   setState(
-                    () => _selectedFrequency = value,
+                    () => _selectedFrequency =  value as RepeatFrequency,
                   );
                 },
               ),
@@ -405,7 +405,7 @@ class _AddOrEditEventFormState extends State<AddOrEditEventForm> {
                       value: RecurrenceEnd.never,
                       groupValue: _selectedRecurrenceEnd,
                       onChanged: (value) => setState(
-                        () => _selectedRecurrenceEnd = value,
+                        () => _selectedRecurrenceEnd =  value as RecurrenceEnd,
                       ),
                     ),
                     Text(
@@ -423,7 +423,7 @@ class _AddOrEditEventFormState extends State<AddOrEditEventForm> {
                       value: RecurrenceEnd.onDate,
                       groupValue: _selectedRecurrenceEnd,
                       onChanged: (value) => setState(
-                        () => _selectedRecurrenceEnd = value,
+                        () => _selectedRecurrenceEnd =  value as RecurrenceEnd,
                       ),
                     ),
                     Text(
@@ -441,7 +441,7 @@ class _AddOrEditEventFormState extends State<AddOrEditEventForm> {
                       value: RecurrenceEnd.after,
                       groupValue: _selectedRecurrenceEnd,
                       onChanged: (value) => setState(
-                        () => _selectedRecurrenceEnd = value,
+                        () => _selectedRecurrenceEnd = value as RecurrenceEnd,
                       ),
                     ),
                     Text(

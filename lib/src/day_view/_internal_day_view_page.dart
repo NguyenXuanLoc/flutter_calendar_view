@@ -316,8 +316,7 @@ class _InternalDayViewPageState<T extends Object?>
                         endHour: widget.endHour,
                         width: widget.width -
                             widget.timeLineWidth -
-                            widget.hourIndicatorSettings.offset -
-                            widget.verticalLineOffset,
+                            widget.hourIndicatorSettings.offset,//Todo
                       ),
                     ),
                     TimeLine(
